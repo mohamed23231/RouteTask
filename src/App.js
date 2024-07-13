@@ -1,21 +1,40 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import data from "./data.json";
 import Filter from "./components/Filter";
 import CustomerTable from "./components/CustomerTable";
 import toast from "react-hot-toast";
 import Graph from "./components/Graph";
+import axios from "axios";
 
 function App() {
-  const [customers, setCustomers] = useState(data.customers);
-  const [transactions, setTransactions] = useState(data.transactions);
-  const [filteredCustomers, setFilteredCustomers] = useState(data.customers);
+  const [customers, setCustomers] = useState([]);
+  const [transactions, setTransactions] = useState([]);
+  const [filteredCustomers, setFilteredCustomers] = useState([]);
   const [nameFilter, setNameFilter] = useState("");
   const [minAmount, setMinAmount] = useState(0);
   const [maxAmount, setMaxAmount] = useState(Number.MAX_VALUE);
   const [selectedCustomer, setSelectedCustomer] = useState(null);
   const notify = (message) => toast.error(`${message}`);
 
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `https://mohamed23231.github.io/route-api/data.json`
+      );
+      console.log(response);
+      setCustomers(response.data.customers);
+      setTransactions(response.data.transactions);
+      setFilteredCustomers(response.data.customers);
+    } catch (error) {
+      console.log("error from account info", error);
+      notify("there is error from server");
+    } finally {
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   useEffect(() => {
     console.log(typeof +minAmount);
     if (maxAmount == "") {
