@@ -23,7 +23,7 @@ const CustomerTable = ({ customers, transactions, setSelectedCustomer }) => {
             <tr
               key={customer.id}
               onClick={() => setSelectedCustomer(customer)}
-              className="odd:bg-white  even:bg-gray-50  border-b cursor-pointer "
+              className="odd:bg-white  even:bg-gray-50  border-b cursor-pointer hover:bg-slate-300 "
             >
               <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                 {customer.name}
