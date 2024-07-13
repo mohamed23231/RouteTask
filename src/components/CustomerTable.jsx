@@ -54,7 +54,7 @@ const CustomerTable = ({ customers, transactions, setSelectedCustomer }) => {
                     <div key={transaction.id}>
                       <FontAwesomeIcon
                         icon={faMoneyBill}
-                        className="mr-1 text-red-700"
+                        className="mr-1 text-green-700"
                       />
                       ${transaction.amount}
                     </div>
