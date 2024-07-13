@@ -17,7 +17,7 @@ function Filter({ setNameFilter, setMinAmount, setMaxAmount }) {
         <div className="lg:w-1/2 px-2 lg:my-0 my-3">
           <input
             onChange={(e) => setMinAmount(e.target.value)}
-            type="search"
+            type="number"
             id="default-search"
             className="block lg:w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:border-green-200 w-5/6 m-auto"
             placeholder="Min Amount"
@@ -26,7 +26,7 @@ function Filter({ setNameFilter, setMinAmount, setMaxAmount }) {
         <div className="lg:w-1/2 px-2 lg:my-0 my-3">
           <input
             onChange={(e) => setMaxAmount(e.target.value)}
-            type="search"
+            type="number"
             id="default-search"
             className="block lg:w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:border-green-200 w-5/6 m-auto"
             placeholder="Max Amount"

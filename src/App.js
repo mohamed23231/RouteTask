@@ -17,16 +17,17 @@ function App() {
   const notify = (message) => toast.error(`${message}`);
 
   useEffect(() => {
+    console.log(typeof +minAmount);
     if (maxAmount == "") {
       setMaxAmount(Number.MAX_VALUE);
     }
     if (minAmount == "") {
       setMinAmount(0);
     }
-    if (typeof minAmount === "string" && minAmount.length > 0) {
+    if (!Number(minAmount) && minAmount.length > 0) {
       notify("Amount should be a number");
     }
-    if (typeof maxAmount === "string" && maxAmount.length > 0) {
+    if (!Number(maxAmount) && maxAmount.length > 0) {
       notify("Amount should be a number");
     }
     const filtered = customers.filter(
